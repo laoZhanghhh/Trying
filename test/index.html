@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+		<title>Music Player</title>
+		<link rel="stylesheet" href="./css/iconfont.css">
+		<link rel="stylesheet" href="./css/range.css">
+		<link rel="stylesheet" href="./css/music.css">
+		<link rel="shortcut icon" type="image/x-icon" href="img/tom.ico">
+	</head>
+	<body>
+		<div class="wrapper" id=app>
+			<div class=player>
+				<div class=player_top>
+					<div class=player_picture :style="urlget"></div>
+				</div>
+				
+				<div class=player_message>
+					<div class=song_message>
+						<div class=song><span>{{audio[i].name}}</span></div>
+						<div class=singer><span>{{audio[i].singer}}</span></div>
+					</div>
+					<div class=son>
+						<label for='like'><i class="iconfont" id="likew">&#xe9c7;</i></label>
+						<input id="like" class=controls type="button" value="喜欢" @click="changeC">
+					</div>
+				</div>
+				
+				<div class=player_controls style="height:30px">
+						<span id=stime>{{getTime(Stime)}}</span>
+						<input id="progress" type="range" :max="audio[i].Sduration"
+						       min=0 value=0 @input="cTchange" style='width: 140px;'><!--180-->
+						<span id=etime>{{getTime(audio[i].Sduration)}}</span>
+				</div>
+				
+				<div class=player_controls>
+					<div class=son>
+						<label for='before'><i class="iconfont">&#xe7e4;</i></label>
+			      <input id="before"  class=controls type="button" value="上一首" @click="changeM">
+					</div>
+					<div class=son id=play style='padding-left: 24px;'>
+						<label for='play'><i class="iconfont" style="font-size: 50px;">&#xe7e5;</i></label>
+			      <input class=controls type="button" value="播放" @click="playM">
+					</div>
+					<div class=son id=pause style='width:94px'>
+						<label for='pause'><i class="iconfont" style="font-size: 50px;">&#xe7e2;</i></label>
+						<input class=controls type="button" value="暂停" @click="pauseM">
+					</div>
+					<div class=son>
+						<label for='next'><i class="iconfont">&#xe7e6;</i></label>
+						<input id="next" class=controls type="button" value="下一首" @click="changeP">
+					</div>
+				</div>
+			</div>
+			<audio id="audio" :src="audio[i].song" autoplay
+			       @timeupdate="TUPdate" @play='playE' @pause="pauseE" @ended="changeP"></audio>
+		</div>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script src="./js/vue.js"></script>
+		<script type="text/javascript">
+		let app=new Vue({
+			el: '#app',
+			data: {
+				i:0,
+				Stime: 0,
+				audio:[{
+					id:1,
+					name:"Girls Like You",
+					singer:"Maroon 5,Cardi B",
+					img:"./img/-179494386.jpg",
+					song:"music/Maroon 5,Cardi B - Girls Like You.mp3",
+					Sduration:235.572245,
+					likestate:true
+				},
+				{
+					id:2,
+					name:"B4 U Try to Kiss Me",
+					singer:"X-Ray Dog",
+					img:"./img/Woofer_109951163186960858.jpg",
+					song:"music/X-Ray Dog - B4 U Try to Kiss Me.mp3",
+					Sduration:82.364082,
+					likestate:true
+				}]
+			},
+			methods:{
+				changeP(){
+					if(this.i===this.audio.length-1){
+						this.i=0;
+					}
+					else{
+						this.i+=1;
+					}
+					$("#progress").css('background-size',0);
+					console.log("song has changed +")
+				},
+				changeM(){
+					if(this.i===0){
+						this.i=this.audio.length-1;
+					}
+					else{
+						this.i-=1;
+					}
+					console.log("song has changed -");
+					$("#progress").css('background-size',0);
+				},
+				pauseM(){
+					$('#pause').hide();
+					$('#play').show();
+				  $('#audio')[0].pause();
+				},
+				playM(){
+					$('#pause').show();
+					$('#play').hide();
+					$('#audio')[0].play();
+				},
+				playE(){
+					$('#pause').show();
+					$('#play').hide();
+				},
+				pauseE(){
+					$('#play').show();
+					$('#pause').hide();
+				},
+				cTchange(){
+					let a=document.getElementById("audio");
+					let p=document.getElementById("progress");
+					a.currentTime=p.value;
+					this.Stime=a.currentTime
+				},
+				TUPdate(){
+					let a=document.getElementById("audio");
+					let p=document.getElementById("progress");
+					p.value=a.currentTime;
+					this.Stime=a.currentTime
+					let t=(p.value/a.duration)*100+'% 100%';
+					$("#progress").css('background-size',t);
+				},
+				changeC(){
+					i=this.i;
+					if(this.audio[i].likestate){
+					  $('#likew').css({'color':'red','transition':'all 0.3s ease-in-out;'});
+					  this.audio[i].likestate= false;
+						console.log('Follow '+this.audio[i].name)
+						}
+					else{
+						$('#likew').css({'color':'#acb8cc','transition':'all 0.3s ease-in-out;'});
+						this.audio[i].likestate= true;
+						console.log('cancelFollow '+this.audio[i].name)
+					}
+				},
+				getTime(time){
+					var minutes = parseInt(time/60);
+					var seconds = parseInt(time-minutes*60);
+					if(minutes<10){minutes="0"+minutes;}
+					if(seconds<10){seconds="0"+seconds;}
+					var result=minutes+":"+seconds;
+					return result;
+				}
+			},
+			computed:{
+				urlget(){
+					i=this.i;
+					return 'background: url('+this.audio[i].img +') 0% 0% / 200px 200px;';
+				}
+			}
+		})
+		</script>
+		<script>
+		</script>
+	</body>
+</html>

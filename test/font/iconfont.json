@@ -1,0 +1,79 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "21890727",
+      "name": "ellipsis-horizontal-outline",
+      "font_class": "ellipsis-horizontal-outline",
+      "unicode": "e7dd",
+      "unicode_decimal": 59357
+    },
+    {
+      "icon_id": "21890733",
+      "name": "ellipsis-vertical-outline",
+      "font_class": "ellipsis-vertical-outline",
+      "unicode": "e7de",
+      "unicode_decimal": 59358
+    },
+    {
+      "icon_id": "21890743",
+      "name": "list-outline",
+      "font_class": "list-outline",
+      "unicode": "e7e0",
+      "unicode_decimal": 59360
+    },
+    {
+      "icon_id": "21890762",
+      "name": "pause-outline",
+      "font_class": "pause-outline",
+      "unicode": "e7e2",
+      "unicode_decimal": 59362
+    },
+    {
+      "icon_id": "21890767",
+      "name": "play-skip-back-outline",
+      "font_class": "play-skip-back-outline",
+      "unicode": "e7e4",
+      "unicode_decimal": 59364
+    },
+    {
+      "icon_id": "21890770",
+      "name": "play-outline",
+      "font_class": "play-outline",
+      "unicode": "e7e5",
+      "unicode_decimal": 59365
+    },
+    {
+      "icon_id": "21890773",
+      "name": "play-skip-forward-outline",
+      "font_class": "play-skip-forward-outline",
+      "unicode": "e7e6",
+      "unicode_decimal": 59366
+    },
+    {
+      "icon_id": "22094612",
+      "name": "heart-outline",
+      "font_class": "heart-outline",
+      "unicode": "e9c6",
+      "unicode_decimal": 59846
+    },
+    {
+      "icon_id": "22094613",
+      "name": "heart",
+      "font_class": "heart",
+      "unicode": "e9c7",
+      "unicode_decimal": 59847
+    },
+    {
+      "icon_id": "22162717",
+      "name": "volume-medium-outline",
+      "font_class": "volume-medium-outline",
+      "unicode": "ea3c",
+      "unicode_decimal": 59964
+    }
+  ]
+}
