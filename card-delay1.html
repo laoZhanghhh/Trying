@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "arial, helvetica, sans-serif";
+			}
+			body{
+				display: flex;
+				justify-content: center;
+				text-align: center;
+				background-color: #16384c;
+			}
+			.container{
+				position: relative;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				text-align: center;
+				flex-wrap: wrap;
+				padding: 10px;
+			}
+			.card{
+				border-radius: 8px;
+				max-width: 300px;
+				height: 230px;
+				position: relative;
+				background-color: #bbb;
+				margin: 30px 10px;
+				padding: 20px 15px;
+				transition: 0.3s ease-in-out;
+			}
+			.card:hover{
+				height: 360px;
+				transition: 0.3s ease-in-out;
+			}
+			.imgBox{
+				position: relative;
+				width: 260px;
+				height: 260px;
+				top: -40px;
+				left: 20px;
+			}
+			.imgBox img{
+				max-width: 100%;
+				border-radius: 8px;
+			}
+			.content{
+				position: relative;
+				margin-top: 110px;
+				visibility: hidden;
+				opacity: 0;
+				transition: 0.3s ease-in-out;
+				color: #16384c;
+			}
+			
+			.card:hover .content{
+				visibility: visible;
+				opacity: 1;
+				margin-top: -20px;
+				transition-delay: 0.3s;
+			}
+		</style>
+	</head>
+	<body>
+		<div class=container>
+			<div class=card>
+				<div class="imgBox">
+					<img src="img/-179494386.jpg" alt='pic'>
+				</div>
+				<div class="content">
+					<h2>Card One</h2>
+					<p>Some people come into our 
+					lives and leave footprints on our hearts. 
+					Others come into our lives and make 
+					us wanna leave footprints on their face.</p>
+				</div>
+			</div>
+		</div>
+		<script>
+		</script>
+	</body>
+</html>
