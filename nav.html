@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+@charset "utf-8";
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #2c3e50
+}
+
+nav{
+  position: relative;
+  margin: 80px auto 0;
+  width: 580px;
+  height: 50px;
+  background-color: #34495e;
+  border-radius: 8px;
+  display: flex
+}
+
+nav a{
+  flex: auto;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  line-height: 50px;
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  text-align: center;
+  width: 100px;
+	-webkit-tap-highlight-color: transparent;
+	transition: all .2s ease 0s;
+}
+
+.animation{
+  position: absolute;
+  height: 5px;
+  bottom: 0;
+  z-index: 2;
+  background: #1abc9c;
+  width: 20%;
+  border-radius: 8px;
+  transition: all .5s ease 0s;
+}
+
+nav .start-home,a:nth-child(1):hover~.animation{
+  left: 0;
+}
+
+nav .start-about,a:nth-child(2):hover~.animation{
+  left: 20%;
+}
+nav .start-blog,a:nth-child(3):hover~.animation{
+  left: 40%;
+}
+nav .start-protfolio,a:nth-child(4):hover~.animation{
+  left: 60%;
+}
+nav .start-contact,a:nth-child(5):hover~.animation{
+  left: 80%;
+}
+	</style>
+	<body>
+<nav>
+  <a href= '#'>Home</a>
+  <a href= '#'>About</a>
+  <a href= '#'>Blog</a>
+  <a href= '#'>Protfolio</a>
+  <a href= '#'>Contact</a>
+  <div class='animation start-home'></div>
+</nav>
+  
+<script type="text/javascript">
+let a = document.getElementsByTagName('a');
+let animation = document.getElementsByClassName('animation')[0];
+
+a[0].onclick = function() {
+	animation.setAttribute('class','animation start-home')
+}
+
+a[1].onclick = function() {
+	animation.setAttribute('class','animation start-about')
+}
+a[2].onclick = function() {
+	animation.setAttribute('class','animation start-blog')
+}
+a[3].onclick = function() {
+	animation.setAttribute('class','animation start-protfolio')
+}
+a[4].onclick = function() {
+	animation.setAttribute('class','animation start-contact')
+}
+	
+</script>	
+	</body>
+</html>
